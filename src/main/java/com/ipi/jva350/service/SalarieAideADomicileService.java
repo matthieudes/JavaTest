@@ -12,16 +12,17 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.time.LocalDate;
 import java.util.LinkedHashSet;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
 public class SalarieAideADomicileService {
 
-    @Autowired
-    private SalarieAideADomicileRepository salarieAideADomicileRepository;
+    private final SalarieAideADomicileRepository salarieAideADomicileRepository;
 
-    public SalarieAideADomicileService() {
-        /// constructeur vide
+    @Autowired
+    public SalarieAideADomicileService(SalarieAideADomicileRepository salarieAideADomicileRepository) {
+        this.salarieAideADomicileRepository = salarieAideADomicileRepository;
     }
 
     /**
@@ -117,8 +118,8 @@ public class SalarieAideADomicileService {
         }
 
         // on vérifie que le congé demandé est dans les mois restants de l'année de congés en cours du salarié :
-        if (joursDecomptes.stream().findFirst().get()
-                .isBefore(salarieAideADomicile.getMoisEnCours())) {
+        Optional<LocalDate> firstJourDecompte = joursDecomptes.stream().findFirst();
+        if (firstJourDecompte.get().isBefore(salarieAideADomicile.getMoisEnCours())) {
             throw new SalarieException("Pas possible de prendre de congé avant le mois en cours !");
         }
         LinkedHashSet<LocalDate> congesPayesPrisDecomptesAnneeN = joursDecomptes.stream()
@@ -182,7 +183,7 @@ public class SalarieAideADomicileService {
     /**
      * Clôture l'année donnée. Il s'agit d'une année DE CONGES donc du 1er juin au 31 mai.
      * Passe les variables N à N-1
-     * @param salarieAideADomicile
+     * @param salarieAideADomicile // salarié
      */
     void clotureAnnee(SalarieAideADomicile salarieAideADomicile) {
         salarieAideADomicile.setJoursTravaillesAnneeNMoins1(salarieAideADomicile.getJoursTravaillesAnneeN());
