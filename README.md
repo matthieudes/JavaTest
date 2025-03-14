@@ -188,3 +188,9 @@ Le rapport Sonar final indique...
 Etat au Début du TP :
 ![img.png](img.png)
 ![img_1.png](img_1.png)
+Ce que nous pouvons voir par rapport au contre rendu de SonarQube c'est que le code n'est pas de très bonne qualité et peu être encore amélioré,
+malgré les efforts fournis comme nous pouvons le voir dans les captures d'écran que nous avons mise au dessus de ce compte rendu(au début du TP) et les captures d'écran que nous avons mis à la fin du TP(Rapport à la fin du TP). 
+De même pour les tests, nous en avons fait quelques uns sur des méthodes qui était demandé mais il aurait sûrement été judicieux d'en faire surtout sur les méthodes cruciales et étant sensible à la casse.
+C'est en cela que le TDD est intéressant car il faut d'abord réfléchir à quelle partie du code sera plus sensible qu'une autre.
+![img_2.png](img_2.png)
+![img_3.png](img_3.png)
