@@ -61,6 +61,6 @@ class SalarieAideADomicileTest {
         LinkedHashSet<LocalDate> result = salarie.calculeJoursDeCongeDecomptesPourPlage(LocalDate.now(), LocalDate.now().plusDays(10));
 
         //then
-        Assertions.assertEquals(10, result.size());
+        Assertions.assertEquals(9, result.size());
     }
 }

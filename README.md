@@ -182,3 +182,9 @@ fichier ne dépasse pas 1 MO.
 - Rédigez **ci-dessous** une courte analyse du rapport produit par Sonar (métriques, évolution, état général...) :
 
 Le rapport Sonar final indique...
+
+
+### Rendu
+Etat au Début du TP :
+![img.png](img.png)
+![img_1.png](img_1.png)
